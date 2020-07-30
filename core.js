@@ -56,6 +56,42 @@ let createBoard = () => {
   console.log(boardArray)
 }
 
-getRollRequirementOrder()
-createBoard()
-console.log(resourceBank)
+let appendTile = (row, hex) => {
+    let tile = document.createElement('div')
+        tile.className = 'resourceTile ' + hex.resource
+        let tD = document.createElement('div')
+            tD.className = 'tileDetails'
+        let tRR = document.createElement('div')
+            tRR.className = 'tileRollRequirements'
+            tRR.innerHTML = hex.rollRequirement
+            let tP = document.createElement('div')
+            tP.className = 'tileProbability'
+            tP.innerHTML = hex.probability
+
+    tD.appendChild(tRR)
+    tD.appendChild(tP)
+    tile.appendChild(tD)
+    document.getElementById(row).appendChild(tile)
+}
+
+let placeTiles = () => {
+    for(let idx in boardArray) {
+        if(idx < 3) {
+            appendTile('firstRow', boardArray[idx])
+        } else if (idx < 7) {
+            appendTile('secondRow', boardArray[idx])
+        } else if (idx < 12) {
+            appendTile('thirdRow', boardArray[idx])
+        } else if (idx < 16) {
+            appendTile('fourthRow', boardArray[idx])
+        } else {
+            appendTile('fifthRow', boardArray[idx])
+        }
+    }
+}
+
+window.onload = () => {
+    getRollRequirementOrder()
+    createBoard()
+    placeTiles()
+}
