@@ -26,7 +26,7 @@ let getResource = () => {
     return dice1 + dice2
 }
 
-let getRollRequirementOrder = () => {
+let getRollRequirementOrderArray = () => {
     orderArray = [5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11]
     let robberIndex = Math.floor(Math.random() * 18)
     orderArray.splice(robberIndex, 0, 7)
@@ -73,7 +73,7 @@ let appendTile = (row, hex) => {
     document.getElementById(row).appendChild(tile)
 }
 
-let getOrderFromStart = (startingPoint) => {
+let changeOrderFromStart = (startingPoint) => {
   let fullArray = []
   let outerRingArray = [0, 1, 2, 6, 11, 15, 18, 17, 16, 12, 7, 3]
   let transitionRing = [4, 4, 5, 5, 10, 10, 14, 14, 13, 13, 8, 8]
@@ -91,6 +91,26 @@ let getOrderFromStart = (startingPoint) => {
   return fullArray
 }
 
+let placeTiles  = (correctedArray) => {
+    let newArray = Array(19)
+    for(let idx in boardArray) {
+        newArray[correctedArray[idx]] = boardArray[idx]
+    }
+    for(let idx in newArray) {
+        if(idx < 3) {
+            appendTile('firstRow', newArray[idx])
+        } else if (idx < 7) {
+            appendTile('secondRow', newArray[idx])
+        } else if (idx < 12) {
+            appendTile('thirdRow', newArray[idx])
+        } else if (idx < 16) {
+            appendTile('fourthRow', newArray[idx])
+        } else {
+            appendTile('fifthRow', newArray[idx])
+        }
+    }
+}
+
 let splitArray = (arr, number) => {
   let firstHalfArray = arr.slice(0, number)
 let lastHalfArray = arr.slice(number, boardArray.length)
@@ -98,15 +118,9 @@ lastHalfArray.push(...firstHalfArray)
 return lastHalfArray
 }
 
-let getLoopedValue = (arr, index) => {
-  while(index > arr.length - 1) {index -= arr.length}
-  console.log('loopedvalue', index)
-  return arr[index]
-}
-
 window.onload = () => {
-    getRollRequirementOrder()
+    getRollRequirementOrderArray()
     createBoard()
-    boardArray = getOrderFromStart(8)
-    // placeTiles()
+    let corrected = changeOrderFromStart(8)
+    placeTiles(corrected)
 }
