@@ -55,25 +55,25 @@
 }
 
 .sheep {
-    background-color: #93b961;
+    background-color: rgb(170, 220, 90);
 }
 
 .wood {
-    background-color: #634f31;
+    background-color: rgb(50,150,60);
 }
 
 .wheat {
-    background-color: #eee34c;
+    background-color: rgb(240, 170, 30);
 }
 
 .brick {
-    background-color: #994126;
+    background-color: rgb(210, 100, 50);
 }
 
 .stone {
-    background-color: #7c7c7c;
+    background-color: rgb(180, 200, 200);
 }
 
 .robber {
-    background-color: #f1edc1;
+    background-color: rgb(240, 240, 200);
 }
