@@ -1,0 +1,79 @@
+.centerX {
+    width: 800px;
+}
+
+.centerY {
+    height: 800px;
+    margin-top: calc((100vh - 800px) / 2 );
+}
+
+#board {
+    background-color: #60c4e9;
+}
+
+.boardRow {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    width: 800px;
+}
+
+.marginBottom {
+    margin-bottom: 1vh;
+}
+
+.resourceTile {
+    display: inline-block;
+    margin: 15px 2.5px;
+    height: 145px;
+    width: 145px;
+    background-color: grey;
+}
+
+.tileDetails {
+    height: 100px;
+    width: 100px;
+    margin: 22.5px;
+}
+
+.tileRollRequirements {
+    height: 50px;
+    line-height: 50px;
+    font-size: 40px;
+    width: 100px;
+    text-align: center;
+    margin: 0px;
+}
+
+.tileProbability {
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    width: 100px;
+    text-align: center;
+    margin: 0px;
+}
+
+.sheep {
+    background-color: #93b961;
+}
+
+.wood {
+    background-color: #634f31;
+}
+
+.wheat {
+    background-color: #eee34c;
+}
+
+.brick {
+    background-color: #994126;
+}
+
+.stone {
+    background-color: #7c7c7c;
+}
+
+.robber {
+    background-color: #f1edc1;
+}
